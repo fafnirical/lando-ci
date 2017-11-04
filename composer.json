@@ -26,6 +26,7 @@
         "webmozart/path-util": "^2.3"
     },
     "require-dev": {
+        "jakub-onderka/php-parallel-lint": "^0.9.2"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -42,6 +43,12 @@
     },
     "scripts": {
         "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+        "lint": [
+            "@lint:syntax"
+        ],
+        "lint:syntax": [
+            "parallel-lint --exclude vendor/ --exclude web/core/ --exclude web/modules/contrib/ --exclude web/profiles/contrib/ --exclude web/themes/contrib/ -e php,inc,install,module,profile,theme ."
+        ],
         "pre-install-cmd": [
             "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
         ],

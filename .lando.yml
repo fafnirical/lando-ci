@@ -2,3 +2,7 @@ name: lando-ci
 recipe: drupal8
 config:
   webroot: web
+services:
+  appserver:
+    build:
+      - "cd $LANDO_MOUNT && composer install"
