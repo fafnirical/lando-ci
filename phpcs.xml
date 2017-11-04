@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<ruleset name="Project">
+  <!-- Run the Drupal and DrupalPractice sniffs. -->
+  <rule ref="./vendor/drupal/coder/coder_sniffer/Drupal" />
+  <rule ref="./vendor/drupal/coder/coder_sniffer/DrupalPractice" />
+
+  <!-- Ignore vendor directories. -->
+  <exclude-pattern type="relative">vendor/</exclude-pattern>
+  <exclude-pattern type="relative">node_modules/</exclude-pattern>
+  <exclude-pattern type="relative">bower_components/</exclude-pattern>
+
+  <!-- Exclude Pattern Lab, which is effectively a vendor directory. -->
+  <exclude-pattern type="relative">pattern-lab/</exclude-pattern>
+
+  <!-- Include Drush files, but exclude contrib Drush libraries. -->
+  <file>./drush/</file>
+  <exclude-pattern>./drush/contrib/</exclude-pattern>
+
+  <!-- Include custom modules. -->
+  <file>./web/modules/</file>
+  <exclude-pattern>./web/modules/contrib/</exclude-pattern>
+
+  <!-- Include custom profiles. -->
+  <file>./web/profiles/</file>
+  <exclude-pattern>./web/profiles/contrib/</exclude-pattern>
+
+  <!-- Include custom themes. -->
+  <file>./web/themes/</file>
+  <exclude-pattern>./web/themes/contrib/</exclude-pattern>
+</ruleset>
